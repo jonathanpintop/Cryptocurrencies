@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import styled from "styled-components";
+
 const Label = styled.label`
   font-family: "Bebas Neue", cursive;
   color: #fff;
@@ -20,20 +21,18 @@ const Select = styled.select`
   font-size: 1.2rem;
 `;
 
-const useCriptomoneda = (label, stateInicial, opciones) => {
-  // console.log(opciones);
-
+const useCoin = (label, InitialState, options) => {
   // State de nuestro custom hook
-  const [state, actualizarState] = useState(stateInicial);
+  const [state, setState] = useState(InitialState);
 
-  const SelectCripto = () => (
+  const Seleccionar = () => (
     <Fragment>
       <Label>{label}</Label>
-      <Select onChange={(e) => actualizarState(e.target.value)} value={state}>
+      <Select onChange={(e) => setState(e.target.value)} value={state}>
         <option value="">- Choose -</option>
-        {opciones.map((opcion) => (
-          <option key={opcion.CoinInfo.Id} value={opcion.CoinInfo.Name}>
-            {opcion.CoinInfo.FullName}
+        {options.map((option) => (
+          <option key={option.code} value={option.code}>
+            {option.name}
           </option>
         ))}
       </Select>
@@ -41,7 +40,7 @@ const useCriptomoneda = (label, stateInicial, opciones) => {
   );
 
   // Retornar state, interfaz y fn que modifica el state
-  return [state, SelectCripto, actualizarState];
+  return [state, Seleccionar, setState];
 };
 
-export default useCriptomoneda;
+export default useCoin;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const ResultadoDiv = styled.div`
+const ResulDiv = styled.div`
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
 `;
@@ -12,36 +12,36 @@ const Info = styled.p`
     font-weight: bold;
   }
 `;
-const Precio = styled.p`
+const Price = styled.p`
   font-size: 30px;
   span {
     font-weight: bold;
   }
 `;
 
-const Quotation = ({ resultado }) => {
-  if (Object.keys(resultado).length === 0) return null;
+const Quotation = ({ result }) => {
+  if (Object.keys(result).length === 0) return null;
 
-  console.log(resultado);
+  console.log(result);
 
   return (
-    <ResultadoDiv>
-      <Precio>
-        El precio es: <span>{resultado.PRICE}</span>{" "}
-      </Precio>
+    <ResulDiv>
+      <Price>
+        The value is: <span>{result.PRICE}</span>{" "}
+      </Price>
       <Info>
-        Precio más alto del día: <span>{resultado.HIGHDAY}</span>{" "}
+        The highest value of Today: <span>{result.HIGHDAY}</span>{" "}
       </Info>
       <Info>
-        Precio más bajo del día: <span>{resultado.LOWDAY}</span>{" "}
+        The lowest value of Today: <span>{result.LOWDAY}</span>{" "}
       </Info>
       <Info>
-        Variación últimas 24 horas: <span>{resultado.CHANGEPCT24HOUR}</span>{" "}
+        Last 24 hours variation: <span>{result.CHANGEPCT24HOUR}</span>{" "}
       </Info>
       <Info>
-        Última Actualización: <span>{resultado.LASTUPDATE}</span>{" "}
+        Last Updated: <span>{result.LASTUPDATE}</span>{" "}
       </Info>
-    </ResultadoDiv>
+    </ResulDiv>
   );
 };
 

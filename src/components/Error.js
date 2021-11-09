@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const MensajeError = styled.p`
+const MessageError = styled.p`
   background-color: #b7322c;
   padding: 1rem;
   color: #fff;
@@ -12,8 +12,8 @@ const MensajeError = styled.p`
   font-family: "Bebas Neue", cursive;
 `;
 
-const Error = ({ mensaje }) => {
-  return <MensajeError>{mensaje}</MensajeError>;
+const Error = ({ message }) => {
+  return <MessageError>{message}</MessageError>;
 };
 
 export default Error;
