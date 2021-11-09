@@ -45,30 +45,23 @@ function App() {
 
   useEffect(() => {
     const cotizarcryptocurrency = async () => {
-      // evitamos la ejecución la primera vez
       if (coin === "") return;
 
-      // consultar la api para obtener la Quotation
       const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cryptocurrency}&tsyms=${coin}`;
 
       const result = await axios.get(url);
 
-      // mostrar el spinner
       setLoading(true);
 
-      // ocultar el spinner y mostrar el result
       setTimeout(() => {
-        // cambiar el estado de loading
         setLoading(false);
 
-        // guardar Quotation
         setResult(result.data.DISPLAY[cryptocurrency][coin]);
       }, 3000);
     };
     cotizarcryptocurrency();
   }, [coin, cryptocurrency]);
 
-  // Mostrar spinner o result
   const component = loading ? <Spinner /> : <Quotation result={result} />;
 
   return (

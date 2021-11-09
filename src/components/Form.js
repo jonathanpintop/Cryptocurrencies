@@ -24,7 +24,6 @@ const Button = styled.input`
 `;
 
 const Form = ({ SetCoin, SetCryptocurrency }) => {
-  // state del listado de cryptocurrencys
   const [cryptocurrencyList, SetCryptocurrencys] = useState([]);
   const [error, setError] = useState(false);
 
@@ -35,21 +34,14 @@ const Form = ({ SetCoin, SetCryptocurrency }) => {
     { code: "GBP", name: "Pound Sterling" },
   ];
 
-  // Utilizar useCoin
-  const [coin, SelectCoins] = useCoin(
-    "Choose your Currency",
-    "",
-    COINS
-  );
+  const [coin, SelectCoins] = useCoin("Choose your Currency", "", COINS);
 
-  // utilizar usecryptocurrency
   const [cryptocurrency, SelectCripto] = useCryptocurrency(
     "Choose your cryptocurrency",
     "",
     cryptocurrencyList
   );
 
-  // Ejecutar llamado a la API
   useEffect(() => {
     const fetchAPI = async () => {
       const url =
@@ -62,17 +54,14 @@ const Form = ({ SetCoin, SetCryptocurrency }) => {
     fetchAPI();
   }, []);
 
-  // cuando el usuario hace submit
   const getCoinQuotation = (e) => {
     e.preventDefault();
 
-    // validar si ambos campos estan llenos
     if (coin === "" || cryptocurrency === "") {
       setError(true);
       return;
     }
 
-    // pasar los datos al component principal
     setError(false);
     SetCoin(coin);
     SetCryptocurrency(cryptocurrency);
