@@ -29,7 +29,7 @@ const Form = ({ guardarMoneda, guardarCriptomoneda }) => {
   const [error, guardarError] = useState(false);
 
   const MONEDAS = [
-    { codigo: "USD", nombre: "Dollar" },
+    { codigo: "USD", nombre: "Dollllar" },
     { codigo: "MXN", nombre: "Mexican Peso" },
     { codigo: "EUR", nombre: "Euro" },
     { codigo: "GBP", nombre: "Pound Sterling" },
